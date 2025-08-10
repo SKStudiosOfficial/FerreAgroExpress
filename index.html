@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ferreagro Express | Materiales para la construcción</title>
+  <meta name="description" content="Todo lo que necesitas para construcción y hogar en tu ciudad. Herramientas, materiales, electricidad, pinturas y más." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="container">
+      <a href="#" class="brand">
+        <img src="assets/logo-ferreagro.png" alt="Ferreagro Express" class="logo" />
+        <span>Ferreagro Express</span>
+      </a>
+      <nav id="nav" class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#novedades">Novedades</a>
+        <a href="#contacto" class="btn btn--sm">Contacto</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <h1 class="reveal">Todo lo que necesitas para <span class="accent">construcción</span> y <span class="accent">hogar</span> en <span id="cityTarget">[Tu Ciudad]</span></h1>
+        <p class="lead reveal delay-1">Herramientas, materiales, electricidad, pinturas y asesoría técnica.</p>
+        <div class="hero__cta reveal delay-2">
+          <a href="#catalogo" class="btn">Ver catálogo</a>
+          <a href="#contacto" class="btn btn--ghost">Ubicación & Contacto</a>
+        </div>
+        <div class="hero__info reveal delay-3">
+          <span>🕒 Lun–Sáb: 8:00–18:00</span>
+          <a class="link" href="https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quisiera%20información%20sobre..." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <div class="hero__carousel reveal">
+          <img src="assets/local-1.jpg" alt="Ferreagro: fachada" class="slide active">
+          <img src="assets/productos-1.jpg" alt="Productos y estanterías" class="slide">
+          <img src="assets/productos-2.jpg" alt="Herramientas" class="slide">
+        </div>
+      </div>
+    </div>
+    <div class="hero__shape"></div>
+  </section>
+
+  <!-- Atajos -->
+  <section class="quick reveal">
+    <div class="container quick__grid">
+      <a href="#catalogo" class="qcard">
+        <div class="qicon">🛒</div><h3>Catálogo</h3><p>Explora por categorías y usa el buscador.</p>
+      </a>
+      <a href="#contacto" class="qcard">
+        <div class="qicon">📍</div><h3>Ubicación</h3><p>Cómo llegar y referencias.</p>
+      </a>
+      <a href="https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quisiera%20consultar..." class="qcard" target="_blank" rel="noopener">
+        <div class="qicon">💬</div><h3>WhatsApp</h3><p>Consulta rápida de productos.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <section id="catalogo" class="catalogo">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Catálogo de productos</h2>
+        <p>Herramientas, materiales de construcción, electricidad, pinturas, jardinería y más.</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filters reveal">
+        <div class="chips" id="categoryChips">
+          <!-- chips generadas por JS -->
+        </div>
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="Buscar por nombre o categoría..." />
+        </div>
+      </div>
+
+      <!-- Ofertas -->
+      <div class="promo reveal">
+        <span class="badge">Ofertas</span>
+        <div class="promo__track" id="promoTrack">
+          <!-- promos generadas por JS -->
+        </div>
+      </div>
+
+      <!-- Grid de productos -->
+      <div id="productsGrid" class="grid reveal">
+        <!-- tarjetas generadas por JS -->
+      </div>
+      <div id="emptyState" class="empty" hidden>No encontramos resultados. Prueba con otra búsqueda.</div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="servicios">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Servicios</h2>
+        <p>Soluciones rápidas para tus proyectos.</p>
+      </div>
+
+      <div class="grid grid--services">
+        <article class="card reveal">
+          <h3>🔪 Corte de madera</h3>
+          <p>Cortes rectos y a medida para tus proyectos de carpintería.</p>
+          <span class="tag">Precio según medida</span>
+        </article>
+        <article class="card reveal delay-1">
+          <h3>🔑 Copias de llaves</h3>
+          <p>Copias de llaves comunes y de seguridad mientras esperas.</p>
+          <span class="tag">Desde $2</span>
+        </article>
+        <article class="card reveal delay-2">
+          <h3>🚚 Entregas a domicilio</h3>
+          <p>Llevamos tu compra a la obra o a tu hogar.</p>
+          <span class="tag">Tarifa según zona</span>
+        </article>
+        <article class="card reveal delay-3">
+          <h3>🧰 Asesoría técnica</h3>
+          <p>Te ayudamos a elegir materiales y herramientas adecuadas.</p>
+          <span class="tag">Sin costo</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre nosotros -->
+  <section id="nosotros" class="about">
+    <div class="container about__grid">
+      <div class="about__media reveal">
+        <img src="assets/equipo.jpg" alt="Equipo Ferreagro" class="rounded">
+      </div>
+      <div class="about__copy">
+        <h2 class="reveal">Sobre nosotros</h2>
+        <p class="reveal delay-1">En Ferreagro Express nos apasiona ayudarte a construir. Desde nuestros inicios, hemos crecido junto a la comunidad ofreciendo calidad, buenos precios y un servicio cercano.</p>
+        <ul class="about__list reveal delay-2">
+          <li>🔧 Misión: facilitar tus proyectos con productos confiables.</li>
+          <li>🎯 Visión: ser la ferretería de referencia en la zona.</li>
+          <li>🤝 Valores: honestidad, compromiso y atención personalizada.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Novedades y consejos -->
+  <section id="novedades" class="blog">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Novedades & Consejos</h2>
+        <p>Promociones, nuevos ingresos y tips de mantenimiento.</p>
+      </div>
+      <div id="blogGrid" class="grid reveal">
+        <!-- posts generados por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto / Mapa -->
+  <section id="contacto" class="contacto">
+    <div class="container contacto__grid">
+      <div class="contacto__info">
+        <h2 class="reveal">Ubicación & Contacto</h2>
+        <p class="reveal delay-1">Dirección: Av. Principal, local 12, cerca de [Referencia].</p>
+        <ul class="reveal delay-2">
+          <li>📞 Tel: <a href="tel:+582123456789">+58 212 345 6789</a></li>
+          <li>💬 WhatsApp: <a href="https://wa.me/584121234567" target="_blank" rel="noopener">+58 412 123 4567</a></li>
+          <li>✉️ Email: <a href="mailto:ventas@ferreagro.com">ventas@ferreagro.com</a></li>
+          <li>🕒 Horario: Lun–Sáb 8:00–18:00</li>
+        </ul>
+
+        <form id="contactForm" class="card reveal">
+          <h3>Consulta rápida</h3>
+          <div class="form-row">
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+            <input type="email" name="email" placeholder="Correo" required />
+          </div>
+          <textarea name="mensaje" rows="4" placeholder="¿Qué necesitas?" required></textarea>
+          <button class="btn" type="submit">Enviar</button>
+          <p id="formMsg" class="form-msg" role="status"></p>
+        </form>
+      </div>
+
+      <div class="contacto__map reveal">
+        <!-- Reemplaza el src con el de tu ubicación -->
+        <iframe
+          title="Mapa Ferreagro Express"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.000000!2d-66.903603!3d10.500000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFerreagro%20Express!5e0!3m2!1ses!2sVE!4v0000000000"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="#" class="brand brand--footer">
+          <img src="assets/logo-ferreagro.png" alt="Ferreagro Express" class="logo" />
+          <span>Ferreagro Express</span>
+        </a>
+        <p>Materiales para construcción, herramientas y asesoría técnica.</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#novedades">Novedades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lun–Sáb: 8:00–18:00<br>Domingo: Cerrado</p>
+      </div>
+    </div>
+    <div class="container footer__copy">
+      <span>© <span id="year"></span> Ferreagro Express. Todos los derechos reservados.</span>
+      <span>IG: <a href="https://instagram.com/ferreagro_express" target="_blank" rel="noopener">@ferreagro_express</a></span>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quisiera%20información%20sobre..."
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="assets/wa.svg" alt="" />
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>
