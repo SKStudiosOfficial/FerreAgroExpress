@@ -57,7 +57,7 @@ const CATEGORIES = [
 
 const PRODUCTS = [
   {id:1, name:'Taladro percutor 1/2" 750W', cat:'Herramientas', price:59.9, img:'assets/p-taladro.jpg'},
-  {id:2, name:'Cemento Portland 50kg', cat:'Materiales', price:8.5, img:'assets/p-cemento.jpg'},
+  {id:2, name:'Cemento Catatumbo 42.5kg', cat:'Materiales', price:8.5, img:'assets/p-cemento.jpg'},
   {id:3, name:'Cable THW 2x12 AWG 20m', cat:'Electricidad', price:15.0, img:'assets/p-cable.jpg'},
   {id:4, name:'Pintura Látex Exterior 1Gal', cat:'Pinturas', price:12.0, img:'assets/p-pintura.jpg'},
   {id:5, name:'Kit llaves combinadas 8pcs', cat:'Ferretería general', price:18.0, img:'assets/p-llaves.jpg'},
@@ -169,3 +169,4 @@ form?.addEventListener('submit', e=>{
   window.open(`mailto:ventas@ferreagro.com?subject=Consulta%20web%20Ferreagro&body=${encodeURIComponent(msg)}`);
   form.reset();
 });
+
