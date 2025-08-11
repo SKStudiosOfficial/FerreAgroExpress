@@ -2,10 +2,25 @@
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Menú responsive
+// Menú responsive + bloqueo de scroll y cierre en links
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
-hamburger?.addEventListener('click', () => nav.classList.toggle('open'));
+if (hamburger && nav){
+  hamburger.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    document.body.classList.toggle('no-scroll', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Cierra al tocar enlace en móvil
+  document.querySelectorAll('.nav-link').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      nav.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      hamburger.setAttribute('aria-expanded','false');
+    });
+  });
+}
 
 // Animaciones on-scroll
 const io = new IntersectionObserver(entries => {
@@ -13,15 +28,27 @@ const io = new IntersectionObserver(entries => {
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Carrusel hero simple
+// Carrusel hero con pausa por visibilidad
 const slides = document.querySelectorAll('.hero__carousel .slide');
 let slideIdx = 0;
-setInterval(()=>{
-  if(!slides.length) return;
-  slides[slideIdx].classList.remove('active');
-  slideIdx = (slideIdx + 1) % slides.length;
-  slides[slideIdx].classList.add('active');
-}, 3500);
+let slideTimer = null;
+
+function startSlides(){
+  if(!slides.length || slideTimer) return;
+  slideTimer = setInterval(()=>{
+    slides[slideIdx].classList.remove('active');
+    slideIdx = (slideIdx + 1) % slides.length;
+    slides[slideIdx].classList.add('active');
+  }, 3500);
+}
+function stopSlides(){
+  clearInterval(slideTimer);
+  slideTimer = null;
+}
+document.addEventListener('visibilitychange', ()=>{
+  if (document.hidden) stopSlides(); else startSlides();
+});
+startSlides();
 
 // ===== Datos demo (reemplaza con tu catálogo real) =====
 const CATEGORIES = [
@@ -71,7 +98,7 @@ const promoTrack = document.getElementById('promoTrack');
 PROMOS.forEach(p=>{
   const el = document.createElement('div');
   el.className = 'promo__card';
-  el.innerHTML = `<div class="badge">${p.icon} ${p.title}</div><p style="color:#cfcfcf;margin:.4rem 0 0">${p.text}</p>`;
+  el.innerHTML = `<div class="badge" aria-hidden="true">${p.icon} ${p.title}</div><p style="color:#cfcfcf;margin:.4rem 0 0">${p.text}</p>`;
   promoTrack?.appendChild(el);
 });
 
@@ -95,11 +122,11 @@ function renderProducts(){
     const card = document.createElement('article');
     card.className = 'card pcard';
     card.innerHTML = `
-      <div class="pcard__img"><img src="${p.img}" alt="${p.name}"></div>
+      <div class="pcard__img"><img src="${p.img}" alt="Producto: ${p.name}" loading="lazy" decoding="async"></div>
       <h3>${p.name}</h3>
       <div class="pcard__meta">
         <span class="tag">${p.cat}</span>
-        <span class="price">${p.price ? '$'+p.price.toFixed(2) : 'Consultar'}</span>
+        <span class="price">${p.price != null ? '$'+p.price.toFixed(2) : 'Consultar'}</span>
       </div>
       <button class="btn btn--sm" style="margin-top:10px"
         onclick="whats('${encodeURIComponent(p.name)}')">Consultar</button>
@@ -110,9 +137,9 @@ function renderProducts(){
 searchInput?.addEventListener('input', renderProducts);
 renderProducts();
 
-// Consulta rápida por WhatsApp
+// Consulta rápida por WhatsApp (número unificado)
 window.whats = (name)=>{
-  const url = `https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quiero%20información%20sobre:%20${name}`;
+  const url = `https://wa.me/584147025022?text=Hola%20Ferreagro%20Express%2C%20quiero%20informaci%C3%B3n%20sobre:%20${name}`;
   window.open(url, '_blank');
 };
 
@@ -122,10 +149,10 @@ POSTS.forEach(b=>{
   const el = document.createElement('article');
   el.className = 'card';
   el.innerHTML = `
-    <img src="${b.img}" alt="">
+    <img src="${b.img}" alt="${b.title}" loading="lazy" decoding="async">
     <h3>${b.title}</h3>
     <p style="color:#cfcfcf">${b.text}</p>
-    <a class="link" href="#">Leer más</a>
+    <a class="link" href="#" aria-label="Leer más: ${b.title}">Leer más</a>
   `;
   blogGrid?.appendChild(el);
 });

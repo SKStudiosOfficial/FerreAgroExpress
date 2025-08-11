@@ -14,19 +14,24 @@
   <!-- Barra superior -->
   <header class="topbar">
     <div class="container">
-      <a href="#" class="brand">
+      <a href="#inicio" class="brand">
         <img src="assets/logo-ferreagro.png" alt="Ferreagro Express" class="logo" />
         <span>Ferreagro Express</span>
       </a>
-      <nav id="nav" class="nav">
-        <a href="#inicio">Inicio</a>
-        <a href="#catalogo">Catálogo</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Sobre nosotros</a>
-        <a href="#novedades">Novedades</a>
-        <a href="#contacto" class="btn btn--sm">Contacto</a>
+      <nav id="nav" class="nav" aria-label="Navegación principal">
+        <a class="nav-link" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#catalogo">Catálogo</a>
+        <a class="nav-link" href="#servicios">Servicios</a>
+        <a class="nav-link" href="#nosotros">Sobre nosotros</a>
+        <a class="nav-link" href="#novedades">Novedades</a>
+        <a class="nav-link btn btn--sm" href="#contacto">Contacto</a>
       </nav>
-      <button id="hamburger" class="hamburger" aria-label="Abrir menú">
+      <button
+        id="hamburger"
+        class="hamburger"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -44,14 +49,14 @@
         </div>
         <div class="hero__info reveal delay-3">
           <span>🕒 Lun–Sáb: 8:00–18:00</span>
-          <a class="link" href="https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quisiera%20información%20sobre..." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+          <a class="link" href="https://wa.me/584147025022?text=Hola%20Ferreagro%20Express%2C%20quisiera%20informaci%C3%B3n%20sobre..." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
         </div>
       </div>
       <div class="hero__media">
         <div class="hero__carousel reveal">
-          <img src="assets/local-1.jpg" alt="Ferreagro: fachada" class="slide active">
-          <img src="assets/productos-1.jpg" alt="Productos y estanterías" class="slide">
-          <img src="assets/productos-2.jpg" alt="Herramientas" class="slide">
+          <img src="assets/local-1.jpg" alt="Fachada de Ferreagro Express" class="slide active" loading="lazy" decoding="async">
+          <img src="assets/productos-1.jpg" alt="Estanterías con productos variados" class="slide" loading="lazy" decoding="async">
+          <img src="assets/productos-2.jpg" alt="Herramientas en exhibición" class="slide" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -67,7 +72,7 @@
       <a href="#contacto" class="qcard">
         <div class="qicon">📍</div><h3>Ubicación</h3><p>Cómo llegar y referencias.</p>
       </a>
-      <a href="https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quisiera%20consultar..." class="qcard" target="_blank" rel="noopener">
+      <a href="https://wa.me/584147025022?text=Hola%20Ferreagro%20Express%2C%20quisiera%20consultar..." class="qcard" target="_blank" rel="noopener">
         <div class="qicon">💬</div><h3>WhatsApp</h3><p>Consulta rápida de productos.</p>
       </a>
     </div>
@@ -87,20 +92,20 @@
           <!-- chips generadas por JS -->
         </div>
         <div class="search">
-          <input id="searchInput" type="search" placeholder="Buscar por nombre o categoría..." />
+          <input id="searchInput" type="search" placeholder="Buscar por nombre o categoría..." aria-label="Busca productos por nombre o categoría">
         </div>
       </div>
 
       <!-- Ofertas -->
       <div class="promo reveal">
-        <span class="badge">Ofertas</span>
+        <span class="badge" aria-label="Ofertas destacadas">Ofertas</span>
         <div class="promo__track" id="promoTrack">
           <!-- promos generadas por JS -->
         </div>
       </div>
 
       <!-- Grid de productos -->
-      <div id="productsGrid" class="grid reveal">
+      <div id="productsGrid" class="grid reveal" aria-live="polite">
         <!-- tarjetas generadas por JS -->
       </div>
       <div id="emptyState" class="empty" hidden>No encontramos resultados. Prueba con otra búsqueda.</div>
@@ -144,7 +149,7 @@
   <section id="nosotros" class="about">
     <div class="container about__grid">
       <div class="about__media reveal">
-        <img src="assets/equipo.jpg" alt="Equipo Ferreagro" class="rounded">
+        <img src="assets/equipo.jpg" alt="Equipo de Ferreagro atendiendo a clientes" class="rounded" loading="lazy" decoding="async">
       </div>
       <div class="about__copy">
         <h2 class="reveal">Sobre nosotros</h2>
@@ -165,7 +170,7 @@
         <h2>Novedades & Consejos</h2>
         <p>Promociones, nuevos ingresos y tips de mantenimiento.</p>
       </div>
-      <div id="blogGrid" class="grid reveal">
+      <div id="blogGrid" class="grid reveal" aria-live="polite">
         <!-- posts generados por JS -->
       </div>
     </div>
@@ -178,26 +183,34 @@
         <h2 class="reveal">Ubicación & Contacto</h2>
         <p class="reveal delay-1">Dirección: Av. Principal, local 12, cerca de [Referencia].</p>
         <ul class="reveal delay-2">
-          <li>📞 Tel: <a href="tel:+582123456789">+58 212 345 6789</a></li>
-          <li>💬 WhatsApp: <a href="https://wa.me/584121234567" target="_blank" rel="noopener">+58 412 123 4567</a></li>
+          <li>📞 Tel: <a href="tel:+584147025022">+58 414 702 5022</a></li>
+          <li>💬 WhatsApp: <a href="https://wa.me/584147025022" target="_blank" rel="noopener">+58 414 702 5022</a></li>
           <li>✉️ Email: <a href="mailto:ventas@ferreagro.com">ventas@ferreagro.com</a></li>
           <li>🕒 Horario: Lun–Sáb 8:00–18:00</li>
         </ul>
 
-        <form id="contactForm" class="card reveal">
+        <form id="contactForm" class="card reveal" aria-label="Formulario de contacto">
           <h3>Consulta rápida</h3>
           <div class="form-row">
-            <input type="text" name="nombre" placeholder="Tu nombre" required />
-            <input type="email" name="email" placeholder="Correo" required />
+            <label>
+              <span>Nombre</span>
+              <input type="text" name="nombre" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              <span>Correo</span>
+              <input type="email" name="email" placeholder="Correo" required />
+            </label>
           </div>
-          <textarea name="mensaje" rows="4" placeholder="¿Qué necesitas?" required></textarea>
+          <label>
+            <span>Mensaje</span>
+            <textarea name="mensaje" rows="4" placeholder="¿Qué necesitas?" required></textarea>
+          </label>
           <button class="btn" type="submit">Enviar</button>
           <p id="formMsg" class="form-msg" role="status"></p>
         </form>
       </div>
 
       <div class="contacto__map reveal">
-        <!-- Reemplaza el src con el de tu ubicación -->
         <iframe
           title="Mapa Ferreagro Express"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.000000!2d-66.903603!3d10.500000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFerreagro%20Express!5e0!3m2!1ses!2sVE!4v0000000000"
@@ -210,7 +223,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <a href="#" class="brand brand--footer">
+        <a href="#inicio" class="brand brand--footer">
           <img src="assets/logo-ferreagro.png" alt="Ferreagro Express" class="logo" />
           <span>Ferreagro Express</span>
         </a>
@@ -237,8 +250,9 @@
   </footer>
 
   <!-- Botón flotante WhatsApp -->
-  <a href="https://wa.me/584121234567?text=Hola%20Ferreagro%20Express%2C%20quisiera%20información%20sobre..."
-     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a
+     href="https://wa.me/584147025022?text=Hola%20Ferreagro%20Express%2C%20quisiera%20informaci%C3%B3n%20sobre..."
+     class="wa-float" target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp con Ferreagro Express">
     <img src="assets/wa.svg" alt="" />
   </a>
 
